@@ -7,23 +7,14 @@
 */
 int check_cycle(listint_t *list)
 {
-listint_t *p;
-listint_t *support;
-if (list == NULL)
-return (0);
-p = list->next;
-while (p != NULL)
+listint_t *slow = list;
+listint_t *fast = list;
+while (fast != NULL && fast->next != NULL)
 {
-if (p == p->next)
+slow = slow->next;
+fast = fast->next->next;
+if (slow == fast)
 return (1);
-support = list;
-while (support != p)
-{
-if (support == p->next)
-return (1);
-support = support->next;
-}
-p = p->next;
 }
 return (0);
 }

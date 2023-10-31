@@ -5,3 +5,4 @@ for x in range(10):
             print("{}{}".format(x, y), end="")
             if (x != 8):
                 print(", ", end="")
+print("\n")

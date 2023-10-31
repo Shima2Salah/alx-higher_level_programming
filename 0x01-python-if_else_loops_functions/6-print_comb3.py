@@ -6,4 +6,4 @@ for x in range(10):
             if (x != 8):
                 print(", ", end="")
             else:
-                print("\n")
+                print("")

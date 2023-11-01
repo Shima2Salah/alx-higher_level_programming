@@ -33,6 +33,8 @@ if (current->next->n > new->n)
 new->next = current->next;
 current->next = new;
 }
+else if (current->next == NULL)
+current->next = new;
 current = current->next;
 }
 }

@@ -17,6 +17,11 @@ return (NULL);
 new->n = number;
 if (*head == NULL)
 *head = new;
+else if (current->n > new->n)
+{
+new->next = current;
+*head = new;
+}
 else
 {
 if (current->n > new->n)
@@ -33,9 +38,3 @@ current = current->next;
 }
 return (new);
 }
-
-
-
-
-
-

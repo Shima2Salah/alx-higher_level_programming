@@ -5,10 +5,10 @@ if __name__ == "__main__":
     x = 1
     if (n == 0):
         print("{} arguments.".format(n))
-    if (n == 1):
+    elif (n == 1):
         print("{} argument:".format(n))
-        print("{}: {}".format(n ,sys.argv[1]))
-    if (n > 1):
+        print("{}: {}".format(n, sys.argv[1]))
+    else:
         print("{} arguments:".format(n))
         while x <= n:
             print("{}: {}".format(x, sys.argv[x]))

@@ -6,6 +6,6 @@ def print_matrix_integer(matrix=[[]]):
         while (j <= x):
             print("{:d}".format(i[j]), end="")
             if j != x:
-                print(" ", end="")    
+                print(" ", end="")
             j += 1
         print()

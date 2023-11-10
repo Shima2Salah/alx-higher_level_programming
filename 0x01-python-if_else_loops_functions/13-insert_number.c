@@ -30,7 +30,7 @@ current->next = new;
 new->next = NULL;
 return (new);
 }
-if (current->next->n > number)
+if (current->next->n >= number)
 {
 new->next = current->next;
 current->next = new;

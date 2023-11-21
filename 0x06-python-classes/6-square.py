@@ -64,11 +64,11 @@ class Square:
         """method print area with the character #"""
         if self.__size == 0:
             print("")
-        for a in range(self.__position[1]):
-            print(" ")
-        for b in range(self.__size):
-            for c in range(self.__position[0]):
+        if self.__position[1] > 0:
+            print("")
+        for a in range(self.__size):
+            for b in range(self.__position[0]):
                 print(" ", end="")
-            for d in range(self.__size):
+            for c in range(self.__size):
                 print("#", end="")
             print("")

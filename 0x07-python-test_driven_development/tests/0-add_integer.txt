@@ -1,0 +1,44 @@
+The ''0-add_integer'' module
+=================================
+Using ''module to add numbers 0-add_integer''
+----------------------------------------
+import module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+    
+Test default b:
+    >>> add_integer(12)
+    110
+    
+Test first double:
+    >>> add_integer(7.2, 3)
+    10
+    
+Test second double:
+    >>> add_integer(4, 8.19)
+    12
+    
+Test sum:
+    >>> add_integer(15, 6)
+    21
+    
+Test double values:
+    >>> add_integer(13.9,17.6 )
+    30
+    
+Test lists:
+    >>> add_integer([5, 6], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    
+Test a strTErr:
+    >>> add_integer("hi", 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    
+Test empty string:
+    >>> add_integer(2, " ")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer

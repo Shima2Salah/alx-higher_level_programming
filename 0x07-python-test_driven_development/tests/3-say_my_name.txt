@@ -1,0 +1,42 @@
+import module:
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Test full name:
+    >>> say_my_name("Ali", "Sami")
+    My name is Ali Sami
+
+Test space first name:
+    >>> say_my_name("", "Sami")
+    My name is  Sami
+
+Test space last name:
+    >>> say_my_name("Ali", "")
+    My name is Ali 
+
+Test default:
+    >>> say_my_name("Ali")
+    My name is Ali 
+
+Test err full name:
+    >>> say_my_name(15, "Sami")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Test err last name:
+    >>> say_my_name("Ali", [5, 2])
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+Test empty full name:
+    >>> say_my_name(None, "Sami")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Test empty last name:
+    >>> say_my_name("Ali", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string

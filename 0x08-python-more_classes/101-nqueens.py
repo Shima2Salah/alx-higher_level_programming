@@ -32,4 +32,4 @@ while i < N and i >= 0:
     i += 1
     if i == N:
         i -= 1
-        print([[l, tested[l]]for l in range(N)])
+        print([[q, tested[q]]for q in range(N)])

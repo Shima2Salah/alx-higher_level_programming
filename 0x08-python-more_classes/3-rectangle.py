@@ -59,7 +59,7 @@ class Rectangle:
         return (2 * (self.__width + self.__height))
     
     def __str__(self):
-        """print # as rectangle area"""
+    """print # as rectangle area"""
         i = 0
         a = ""
         if (self.__width == 0 or self.__height == 0):
@@ -73,3 +73,4 @@ class Rectangle:
             if i != self.__height:
                 a += "\n"
         return a
+

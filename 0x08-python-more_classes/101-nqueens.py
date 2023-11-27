@@ -2,18 +2,23 @@
 from sys import argv
 
 def print_solution(solutions):
-    """Prints each solution in the list of solutions."""
+    """
+    Prints each solution of the N-Queens problem.
+
+    Args:
+    - solutions: List of solutions, where each solution is a list of [row, col] pairs.
+    """
     for solution in solutions:
         print(solution)
 
 def is_safe(tested, row, col):
     """
-    Checks if placing a queen at the given row and col is safe.
+    Checks if placing a queen at a given position is safe.
 
     Args:
-    - tested: List containing the column index for each row where a queen is placed
-    - row: Row index
-    - col: Column index
+    - tested: List containing the column index for each row where a queen is placed.
+    - row: Row index.
+    - col: Column index.
 
     Returns:
     - True if it's safe to place a queen, False otherwise.
@@ -25,10 +30,10 @@ def is_safe(tested, row, col):
 
 def solve_nqueens(N):
     """
-    Solves the N-Queens problem for a given N.
+    Solves the N-Queens problem for a given board size.
 
     Args:
-    - N: Integer representing the board size
+    - N: Integer representing the board size.
 
     Returns:
     - List of solutions where each solution is represented as a list of [row, col] pairs.

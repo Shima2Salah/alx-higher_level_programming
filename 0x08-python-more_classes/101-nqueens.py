@@ -1,35 +1,70 @@
 #!/usr/bin/python3
 from sys import argv
-argc = len(argv)
-if argc != 2:
-    print("Usage: nqueens N")
-    exit(1)
-try:
-    N = int(argv[1])
-except Exception as e:
-    print("N must be a number")
-    exit(1)
-if N < 4:
-    print("N must be at least 4")
-    exit(1)
-tested = [-1] * N
-i = 0
-while i < N and i >= 0:
-    j = tested[i] + 1
-    while j < N:
-        k = 0
-        while k < i:
-            if tested[k] == j or abs(tested[k] - j) == abs(k - i):
-                break
-            k += 1
-        if k == i:
-            tested[i] = j
-            break
-        j += 1
-    if j == N:
-        tested[i] = -1
-        i -= 2
-    i += 1
-    if i == N:
-        i -= 1
-        print([[q, tested[q]]for q in range(N)])
+
+def print_solution(solutions):
+    """Prints each solution in the list of solutions."""
+    for solution in solutions:
+        print(solution)
+
+def is_safe(tested, row, col):
+    """
+    Checks if placing a queen at the given row and col is safe.
+
+    Args:
+    - tested: List containing the column index for each row where a queen is placed
+    - row: Row index
+    - col: Column index
+
+    Returns:
+    - True if it's safe to place a queen, False otherwise.
+    """
+    for i in range(row):
+        if tested[i] == col or abs(tested[i] - col) == abs(i - row):
+            return False
+    return True
+
+def solve_nqueens(N):
+    """
+    Solves the N-Queens problem for a given N.
+
+    Args:
+    - N: Integer representing the board size
+
+    Returns:
+    - List of solutions where each solution is represented as a list of [row, col] pairs.
+    """
+    if N < 4:
+        print("N must be at least 4")
+        exit(1)
+
+    solutions = []
+
+    def solve(tested, row):
+        """Recursive function to solve the N-Queens problem."""
+        if row == N:
+            solutions.append([[q, tested[q]] for q in range(N)])
+            return
+        for col in range(N):
+            if is_safe(tested, row, col):
+                tested[row] = col
+                solve(tested, row + 1)
+
+    tested = [-1] * N
+    solve(tested, 0)
+    return solutions
+
+if __name__ == "__main__":
+    # Check for correct usage
+    argc = len(argv)
+    if argc != 2:
+        print("Usage: nqueens N")
+        exit(1)
+    try:
+        N = int(argv[1])
+    except ValueError:
+        print("N must be a number")
+        exit(1)
+
+    # Solve the N-Queens problem and print solutions
+    solutions = solve_nqueens(N)
+    print_solution(solutions)

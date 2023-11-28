@@ -1,24 +1,27 @@
 >>> a = __import__("101-lazy_matrix_mul")
->>> print(a.lazy_matrix_mul([[1, 2]], [[1, 1], [2, 1]]))
-[[5 3]]
+>>> print(a.lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
+>>> print(a.lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13 16]]
 >>> a.lazy_matrix_mul()
 Traceback (most recent call last):
 TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
 >>> a.lazy_matrix_mul([3, 2, 1], [2, 5])
 Traceback (most recent call last):
-ValueError: objects are not aligned
+ValueError: shapes (3,) and (2,) not aligned: 3 (dim 0) != 2 (dim 0)
 >>> a.lazy_matrix_mul([[3, 2, 1], [1, 2, 3]], [2, 5])
 Traceback (most recent call last):
-ValueError: objects are not aligned
+ValueError: shapes (2,3) and (2,) not aligned: 3 (dim 1) != 2 (dim 0)
 >>> a.lazy_matrix_mul([[]], [[5],[3]])
 Traceback (most recent call last):
-ValueError: matrices are not aligned
+ValueError: shapes (1,0) and (2,1) not aligned: 0 (dim 1) != 2 (dim 0)
 >>> a.lazy_matrix_mul([[5, 2, 1], ["sad", 3, 4]], [[5], [3]])
 Traceback (most recent call last):
-ValueError: objects are not aligned
->>> a.lazy_matrix_mul([[5] [3]], [[5, 2, 1], ["sad", 3, 4]])
+ValueError: shapes (2,3) and (2,1) not aligned: 3 (dim 1) != 2 (dim 0)
+>>> a.lazy_matrix_mul([[5], [3]], [[5, 2, 1], ["sad", 3, 4]])
 Traceback (most recent call last):
-IndexError: list index out of range
+ValueError: shapes (2,1) and (2,3) not aligned: 1 (dim 1) != 2 (dim 0)
 >>> a.lazy_matrix_mul([[2],[3]], [[2, 3], [3, 4]])
 Traceback (most recent call last):
-ValueError: objects are not aligned
+ValueError: shapes (2,1) and (2,2) not aligned: 1 (dim 1) != 2 (dim 0)

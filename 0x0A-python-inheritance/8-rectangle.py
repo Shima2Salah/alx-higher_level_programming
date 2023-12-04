@@ -22,10 +22,13 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """class Rectangle child"""
-
+    """
+    Class that defines a rectangle.
+    """
     def __init__(self, width, height):
-        """int func validator function"""
+        """
+        Initializer for the rectangle class.
+        """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width

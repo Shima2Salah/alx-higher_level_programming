@@ -5,4 +5,4 @@
 def lookup(obj):
     """all lists printed"""
 
-    print(dir(obj))
+    return (dir(obj))

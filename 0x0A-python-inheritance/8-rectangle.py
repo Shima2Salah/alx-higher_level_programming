@@ -1,31 +1,27 @@
 #!/usr/bin/python3
-"""module that return is object or not"""
+"""writing a base geometry class"""
 
 
 class BaseGeometry:
-    """class BaseGeometry parent"""
-
-    def __init__(self):
-        """intialize function"""
-        pass
+    """writing a base geometry class"""
 
     def area(self):
-        """area function"""
+        """It raise an exception for area not def"""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """int func validator function"""
+        """validation of value for int and > 0"""
         if type(value) != int:
-            raise TypeError(f"{name} must be an integer")
+            raise TypeError("{} must be an integer".format(name))
         if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+            raise ValueError("{} must be greater than 0".format(name))
 
 
 class Rectangle(BaseGeometry):
-    """class Rectangle child"""
+    """Rectangle class inherit from base geometry"""
 
     def __init__(self, width, height):
-        """int func validator function"""
+        """a constructor class for rectangle"""
         super().integer_validator("width", width)
         super().integer_validator("height", height)
         self.__width = width

@@ -1,34 +1,13 @@
 #!/usr/bin/python3
 """module that return is object or not"""
-
-
-class BaseGeometry:
-    """class BaseGeometry parent"""
-
-    def __init__(self):
-        """intialize function"""
-        pass
-
-    def area(self):
-        """area function"""
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """int func validator function"""
-        if type(value) != int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """
-    Class that defines a rectangle.
-    """
+    """class Rectangle child"""
+
     def __init__(self, width, height):
-        """
-        Initializer for the rectangle class.
-        """
+        """int func validator function"""
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width

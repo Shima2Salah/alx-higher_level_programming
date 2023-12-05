@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-"""file module"""
+"""read element from the file"""
 
 
 def read_file(filename=""):
-    """read file function"""
-    with open(filename, 'r', encoding='utf-8')as file:
-        for line in file:
-            print(line.strip())
+    """read element to the file
+
+    Args:
+        filename: the file name
+    """
+    with open(filename, encoding="utf-8") as myfile:
+        line = myfile.readlines()
+        for i in line:
+            print(i, end='')

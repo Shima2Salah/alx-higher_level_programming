@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""Script that stores args in json"""
-import sys
-import json
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+"""add all argumenst to a json file"""
 
-filename = "add_item.json"
-args = sys.argv[1:]
 
-existing_list = load_from_json_file(filename)
+if __name__ == "__main__":
+    import sys
 
-existing_list.extend(args)
-
-save_to_json_file(existing_list, filename)
+    loader = __import__('6-load_from_json_file').load_from_json_file
+    saver = __import__('5-save_to_json_file').save_to_json_file
+    try:
+        items = loader('add_item.json')
+    except FileNotFoundError:
+        items = []
+    items.extend(sys.argv[1:])
+    saver(items, 'add_item.json')

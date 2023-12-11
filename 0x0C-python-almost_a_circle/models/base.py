@@ -2,6 +2,7 @@
 """ module base """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -66,21 +67,36 @@ class Base:
             return []
 
     @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Function that saves to a .csv file.
+        """
+        with open(cls.__name__ + ".csv", "w", encoding='utf-8') as f:
+            list_dicts = list()
+            for item in list_objs:
+                list_dicts.append(item.to_dictionary())
+            if cls.__name__ == "Rectangle":
+                fieldnames = ["id", "width", "height", "x", "y"]
+            else:
+                fieldnames = ["id", "size", "x", "y"]
+            writer = csv.DictWriter(f, fieldnames)
+            writer.writeheader()
+            writer.writerows(list_dicts)
+
+    @classmethod
     def load_from_file_csv(cls):
-        """load from the csv file"""
-        filename = cls.__name__ + ".csv"
-        try:
-            with open(filename, "r", newline="") as csvfile:
-                if cls.__name__ == "Rectangle":
-                    fieldnames = ["id", "width", "height", "x", "y"]
-                else:
-                    fieldnames = ["id", "size", "x", "y"]
-                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                list_dicts = [dict([k, int(v)] for k, v in d.items())
-                              for d in list_dicts]
-                return [cls.create(**d) for d in list_dicts]
-        except IOError:
-            return []
+        """
+        Function that loads from a .csv file
+        """
+        ans = []
+        with open(cls.__name__ + ".csv", "r") as f:
+            reader = csv.DictReader(f)
+            for line in reader:
+                kwargs = dict(line)
+                for key, val in kwargs.items():
+                    kwargs[key] = int(val)
+                ans.append(cls.create(**kwargs))
+            return ans
 
     @staticmethod
     def draw(list_rectangles, list_squares):

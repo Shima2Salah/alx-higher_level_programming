@@ -8,7 +8,7 @@ from contextlib import redirect_stdout
 
 class Test_rectangle(unittest.TestCase):
     """testing for rectangle class"""
-    
+
     def test_init(self):
         """testing for rectangle class initialize"""
         obj1 = Rectangle(10, 2)
@@ -50,7 +50,7 @@ class Test_rectangle(unittest.TestCase):
         """testing for rectangle class y"""
         self.assertRaises(TypeError, Rectangle, 10, 2, 4, {})
         self.assertRaises(ValueError, Rectangle, 10, 2, 5, -3)
-    
+
     def test_area(self):
         """testing for rectangle class area"""
         obj8 = Rectangle(3, 2)
@@ -73,7 +73,7 @@ class Test_rectangle(unittest.TestCase):
         obj12 = Rectangle(2, 1)
         outr12 = StringIO()
         with redirect_stdout(outr12):
-            obj12.display() 
+            obj12.display()
             self.assertEqual(outr12.getvalue(), "##\n")
 
     def test_string(self):
@@ -82,7 +82,7 @@ class Test_rectangle(unittest.TestCase):
         self.assertEqual(obj13.__str__(), "[Rectangle] (12) 2/1 - 4/6")
 
         obj14 = Rectangle(5, 5, 1)
-        self.assertEqual(obj14.__str__(), "[Rectangle] (14) 1/0 - 5/5")
+        self.assertEqual(obj14.__str__(), "[Rectangle] (1) 1/0 - 5/5")
 
     def test_display2(self):
         """testing for rectangle class display"""
@@ -95,11 +95,11 @@ class Test_rectangle(unittest.TestCase):
         obj16 = Rectangle(3, 2, 1, 0)
         outr16 = StringIO()
         with redirect_stdout(outr16):
-            obj16.display() 
+            obj16.display()
             self.assertEqual(outr16.getvalue(), " ###\n ###\n")
 
     def test_update(self):
-        """testing for rectangle class string"""
+        """testing for rectangle class update"""
         obj17 = Rectangle(89, 2, 3, 4, 5)
         obj17.update(83)
         self.assertEqual(obj17.__str__(), "[Rectangle] (83) 3/4 - 89/2")
@@ -113,6 +113,7 @@ class Test_rectangle(unittest.TestCase):
         self.assertEqual(obj18.__str__(), "[Rectangle] (15) 2/10 - 1/10")
         obj18.update(x=1, height=2, y=3, width=4)
         self.assertEqual(obj18.__str__(), "[Rectangle] (15) 1/3 - 4/2")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -66,18 +66,20 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """
-        Function that loads from a .csv file
-        """
-        ans = []
-        with open(cls.__name__ + ".csv", "r") as f:
-            reader = csv.DictReader(f)
-            for line in reader:
-                kwargs = dict(line)
-                for key, val in kwargs.items():
-                    kwargs[key] = int(val)
-                ans.append(cls.create(**kwargs))
-            return ans
+        """load from the csv file"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
 
     @staticmethod
     def draw(list_rectangles, list_squares):

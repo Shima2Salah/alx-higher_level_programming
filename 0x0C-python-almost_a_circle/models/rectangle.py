@@ -12,11 +12,12 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-        
+
     @property
     def width(self):
         """ width getter function """
         return self.__width
+
     @width.setter
     def width(self, value):
         """ width setter function """
@@ -30,6 +31,7 @@ class Rectangle(Base):
     def height(self):
         """ height getter function """
         return self.__height
+
     @height.setter
     def height(self, value):
         """ height getter function """
@@ -43,6 +45,7 @@ class Rectangle(Base):
     def x(self):
         """ x setter function """
         return self.__x
+
     @x.setter
     def x(self, value):
         """ x getter function """
@@ -56,6 +59,7 @@ class Rectangle(Base):
     def y(self):
         """ y setter function """
         return self.__y
+
     @y.setter
     def y(self, value):
         """ y getter function """
@@ -83,12 +87,13 @@ class Rectangle(Base):
             while (b < self.__width):
                 print("#", end="")
                 b += 1
-            a += 1 
+            a += 1
             print("")
-    
+
     def __str__(self):
         """ string function """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) \
+{self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """ rectangle update function """
@@ -115,4 +120,5 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """ convert to dictionary function """
-        return {"x":self.__x, "y":self.__y, "id":self.id, "height":self.__height, "width":self.__width}
+        return {"x": self.__x, "y": self.__y, "id": self.id,
+                "height": self.__height, "width": self.__width}

@@ -29,6 +29,7 @@ class Base:
         with open(cls.__name__ + '.json', 'w')as file:
             if list_objs is None:
                 file.write("[]")
+                return
             for obj in list_objs:
                 z.append(obj.to_dictionary())
             file.write(Base.to_json_string(z))

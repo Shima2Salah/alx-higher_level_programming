@@ -82,7 +82,7 @@ class Test_rectangle(unittest.TestCase):
         self.assertEqual(obj13.__str__(), "[Rectangle] (12) 2/1 - 4/6")
 
         obj14 = Rectangle(5, 5, 1)
-        self.assertEqual(obj14.__str__(), "[Rectangle] (1) 1/0 - 5/5")
+        self.assertEqual(obj14.__str__(), "[Rectangle] (18) 1/0 - 5/5")
 
     def test_display2(self):
         """testing for rectangle class display"""

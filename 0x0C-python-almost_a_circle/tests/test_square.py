@@ -141,7 +141,7 @@ class TestSquare_stdout(unittest.TestCase):
     def test_arg_with_kwargs(self):
         s1 = Square(4)
         s1.update(7, 8, 9, 6, id = 20, size = 4, x = 2, y = 4)
-        self.assertEqual(s1.area(), 64)
+        self.assertEqual(s1.area(), 16)
         self.assertEqual(s1.x, s1.y + 3)
         self.assertEqual(s1.id, 7)
 

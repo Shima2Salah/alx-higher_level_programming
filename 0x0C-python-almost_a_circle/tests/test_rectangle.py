@@ -2,6 +2,8 @@
 """ test for rectangle module"""
 import unittest
 from models.rectangle import Rectangle
+from io import StringIO
+from contextlib import redirect_stdout
 
 
 class Test_rectangle(unittest.TestCase):
@@ -50,7 +52,7 @@ class Test_rectangle(unittest.TestCase):
         self.assertRaises(ValueError, Rectangle, 10, 2, 5, -3)
     
     def test_area(self):
-        """testing for rectangle class initialize"""
+        """testing for rectangle class area"""
         obj8 = Rectangle(3, 2)
         self.assertEqual(obj8.area(), 6)
 
@@ -59,6 +61,58 @@ class Test_rectangle(unittest.TestCase):
 
         obj10 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(obj10.area(), 56)
+
+    def test_display(self):
+        """testing for rectangle class display"""
+        obj11 = Rectangle(3, 2)
+        outr11 = StringIO()
+        with redirect_stdout(outr11):
+            obj11.display()
+            self.assertEqual(outr11.getvalue(), "###\n###\n")
+
+        obj12 = Rectangle(2, 1)
+        outr12 = StringIO()
+        with redirect_stdout(outr12):
+            obj12.display() 
+            self.assertEqual(outr12.getvalue(), "##\n")
+
+    def test_string(self):
+        """testing for rectangle class string"""
+        obj13 = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(obj13.__str__(), "[Rectangle] (12) 2/1 - 4/6")
+
+        obj14 = Rectangle(5, 5, 1)
+        self.assertEqual(obj14.__str__(), "[Rectangle] (14) 1/0 - 5/5")
+
+    def test_display2(self):
+        """testing for rectangle class display"""
+        obj15 = Rectangle(2, 3, 2, 2)
+        outr15 = StringIO()
+        with redirect_stdout(outr15):
+            obj15.display()
+            self.assertEqual(outr15.getvalue(), "\n\n  ##\n  ##\n  ##\n")
+
+        obj16 = Rectangle(3, 2, 1, 0)
+        outr16 = StringIO()
+        with redirect_stdout(outr16):
+            obj16.display() 
+            self.assertEqual(outr16.getvalue(), " ###\n ###\n")
+
+    def test_update(self):
+        """testing for rectangle class string"""
+        obj17 = Rectangle(89, 2, 3, 4, 5)
+        obj17.update(83)
+        self.assertEqual(obj17.__str__(), "[Rectangle] (83) 3/4 - 89/2")
+        obj17.update(83, 5)
+        self.assertEqual(obj17.__str__(), "[Rectangle] (83) 3/4 - 5/2")
+
+    def test_update2(self):
+        """testing for rectangle class update"""
+        obj18 = Rectangle(10, 10, 10, 10, 15)
+        obj18.update(width=1, x=2)
+        self.assertEqual(obj18.__str__(), "[Rectangle] (15) 2/10 - 1/10")
+        obj18.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(obj18.__str__(), "[Rectangle] (15) 1/3 - 4/2")
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ test for base module"""
-import unittest:
+import unittest
+from models.base import Base
 
 
 class Test_base(unittest.TestCase):
@@ -8,11 +9,20 @@ class Test_base(unittest.TestCase):
     
     def test_init(self):
         """testing for base class initialize"""
-        self.assertequal(Base(), 1)
-        self.assertequal(Base(), 2)
-        self.assertequal(Base(15), 15)
-        self.assertequal(Base(), 3)
-        self.assertequal(Base(None), 4)
+        obj1 = Base()
+        self.assertEqual(obj1.id, 1)
+
+        obj2 = Base()
+        self.assertEqual(obj2.id, 2)
+
+        obj3 = Base(15)
+        self.assertEqual(obj3.id, 15)
+
+        obj4 = Base()
+        self.assertEqual(obj4.id, 3)
+
+        obj5 = Base(None)
+        self.assertEqual(obj5.id, 4)
 
 if __name__ == "__main__":
     unittest.main()

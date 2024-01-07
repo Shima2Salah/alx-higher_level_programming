@@ -88,3 +88,9 @@ Test 3 variables:
     Traceback (most recent call last):
     ...
     TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Test float nan:
+    >>> add_integer(float('nan'), 10)
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer

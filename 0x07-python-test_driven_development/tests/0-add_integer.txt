@@ -82,6 +82,9 @@ Test null val:
     Traceback (most recent call last):
     ...
     TypeError: add_integer() missing 1 required positional argument: 'a'
->>> a.add_integer(34, 54, 67)
-Traceback (most recent call last):
-TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+    
+Test 3 variables:
+    >>> add_integer(34, 54, 67)
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given

@@ -32,3 +32,19 @@ Test matrix size:
     Traceback (most recent call last):
     ...
     TypeError: Each row of the matrix must have the same size
+
+Test float inf:
+    >>> matrix_divided([[6, 8, 10], [7, 5, 9]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Test missing arg:
+    >>> matrix_divided([[6, 8, 10], [7, 5, 6]])
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Test missing two args:
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'

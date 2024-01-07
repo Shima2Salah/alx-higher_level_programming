@@ -1,84 +1,64 @@
-The ''0-add_integer'' module
-=================================
-Using ''module to add numbers 0-add_integer''
-----------------------------------------
-import module:
+===========================
+How to use 0-add_integer.py
+===========================
+
+This module defines the integer addition of '2' numbers ``add_integer(a, b=98)``.
+
+Usage
+=====
+
+``add_integer(...)`` is used for integer addition of two numbers, it receives two argument.
+The only one is compulsory while the second is initially set to 98.
+
+::
+
     >>> add_integer = __import__('0-add_integer').add_integer
-    
-Test default b:
-    >>> add_integer(12)
-    110
-    
-Test first double:
-    >>> add_integer(7.2, 3)
-    10
-    
-Test second double:
-    >>> add_integer(4, 8.19)
-    12
-    
-Test sum:
-    >>> add_integer(15, 6)
-    21
-    
-Test double values:
-    >>> add_integer(13.9,17.6 )
-    30
-    
-Test a lists:
-    >>> add_integer([5, 6], 3)
+    >>> add_integer(2, 3)
+    5
+
+::
+
+    >>> add_integer(2, -3)
+    -1
+
+The function work with floating point numbers but it convert them to int
+
+::
+
+    >>> add_integer(2.3, 3.2)
+    5
+
+::
+
+    >>> add_integer(2)
+    100
+
+Non-numbers
+===========
+
+``add_integer(...)`` only accept an int and a floatng point numbers otherwise it raises
+a TypeError
+
+::
+
+    >>> add_integer("a", 3)
     Traceback (most recent call last):
-    ...
     TypeError: a must be an integer
-    
-Test b lists:
-    >>> add_integer(3, [5, 6])
+
+::
+
+    >>> add_integer(None)
     Traceback (most recent call last):
-    ...
+    TypeError: a must be an integer
+
+::
+
+    >>> add_integer(3, "a")
+    Traceback (most recent call last):
     TypeError: b must be an integer
 
-Test a strTErr:
-    >>> add_integer("hi", 2)
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
+::
 
-Test b strTErr:
-    >>> add_integer(2, "hi")
+    >>> add_integer(3, None)
     Traceback (most recent call last):
-    ...
     TypeError: b must be an integer
-
-Test empty string:
-    >>> add_integer(" ", 2)
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
-    
-Test empty string:
-    >>> add_integer(2, " ")
-    Traceback (most recent call last):
-    ...
-    TypeError: b must be an integer
-    
-Test empty 2 string:
-    >>> add_integer("", "")
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
-    
-Test negative val:
-    >>> add_integer(-100.3, -2)
-    -102
-    
-Test infinity num:
-    >>> add_integer(float('inf'))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-
-Test null val:
-    >>> add_integer()
-    Traceback (most recent call last):
-    ...
-    TypeError: add_integer() missing 1 required positional argument: 'a'

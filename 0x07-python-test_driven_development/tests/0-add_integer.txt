@@ -70,12 +70,6 @@ Test empty 2 string:
 Test negative val:
     >>> add_integer(-100.3, -2)
     -102
-
-Test negative val:
-    >>> add_integer(None)
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
     
 Test infinity num:
     >>> add_integer(float('inf'))

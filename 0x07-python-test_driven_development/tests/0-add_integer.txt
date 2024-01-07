@@ -25,14 +25,32 @@ Test double values:
     >>> add_integer(13.9,17.6 )
     30
     
-Test lists:
+Test a lists:
     >>> add_integer([5, 6], 3)
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
     
+Test b lists:
+    >>> add_integer(3, [5, 6])
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
 Test a strTErr:
     >>> add_integer("hi", 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Test b strTErr:
+    >>> add_integer(2, "hi")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Test empty string:
+    >>> add_integer(" ", 2)
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
@@ -42,3 +60,13 @@ Test empty string:
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
+    
+Test empty 2 string:
+    >>> add_integer("", "")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    
+Test negative val:
+    >>> add_integer(-100.3, -2)
+    -102

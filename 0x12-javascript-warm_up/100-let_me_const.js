@@ -1,8 +1,5 @@
 #!/usr/bin/node
-function change (a) {
-  a = 333;
-  return a;
-}
+const myVar = 333;
 module.exports = {
-  change
+  myVar
 };

@@ -3,8 +3,6 @@ if (isNaN(Number(process.argv[2])) === true) {
   console.log('Missing size');
 } else {
   for (let i = 0; i < process.argv[2]; i++) {
-    for (let i = 0; i < process.argv[2]; i++) {
-      console.log('X');
-    }
+    console.log('X'.repeat(process.argv[2]));
   }
 }

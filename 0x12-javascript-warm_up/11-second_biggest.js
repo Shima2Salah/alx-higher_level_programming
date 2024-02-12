@@ -7,5 +7,6 @@ if (args === 2 || args === 3) {
   for (let i = 2; i < process.argv.length; i++) {
     x.push(+process.argv[i]);
   }
-  console.log(x.sort().reverse()[1]);
+  x.sort((a, b) => b - a);
+  console.log(x[1]);
 }

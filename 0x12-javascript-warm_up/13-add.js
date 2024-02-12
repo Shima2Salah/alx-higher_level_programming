@@ -5,7 +5,3 @@ function add(a, b) {
 module.exports = {
   add: add
 };
-const myObject = {
-  type: 'object',
-  value: 12
-};

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# To List all states from database hbtn_0e_0_usa
+"""To List all states from database hbtn_0e_0_usa"""
 import sys
 import MySQLdb
 if __name__ == "__main__":

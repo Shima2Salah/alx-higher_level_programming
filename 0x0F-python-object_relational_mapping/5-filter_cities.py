@@ -15,6 +15,6 @@ if __name__ == "__main__":
     data = (sys.argv[4], )
     cur.execute(sql, data)
     query_rows = cur.fetchall()
-    print(", ".join([city[0] for row in query_rows]))
+    print(", ".join([row[0] for row in query_rows]))
     cur.close()
     conn.close()

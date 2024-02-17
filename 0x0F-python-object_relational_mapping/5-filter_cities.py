@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# Takes in the name of a state as argument and lists all cities of that state.
-# And it is safe of SQL injection.
+""" Takes in the name of a state as argument and lists all cities of that state.
+ And it is safe of SQL injection."""
 import MySQLdb
 import sys
 if __name__ == "__main__":

@@ -9,9 +9,9 @@ if __name__ == "__main__":
                            passwd=sys.argv[2],
                            db=sys.argv[3])
     cur = conn.cursor()
-    sql = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
-    data = (sys.argv[4],)
-    cur.execute(sql, data)
+    sql = "SELECT * FROM states WHERE name = %s ORDER BY\
+           states.id ASC".format(sys.argv[4])
+    cur.execute(sql)
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)

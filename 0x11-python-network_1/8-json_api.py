@@ -8,7 +8,7 @@ if __name__ == "__main__":
         q = sys.argv[1]
     else:
         q = ""
-    response = requests.get(url, params={'q': q})
+    response = requests.post(url, params={'q': q})
     try:
         r = response.json()
     except ValueError:

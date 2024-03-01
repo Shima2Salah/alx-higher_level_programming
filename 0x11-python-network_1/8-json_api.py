@@ -8,7 +8,7 @@ if __name__ == "__main__":
         q = sys.argv[1]
     else:
         q = ""
-    response = requests.post(url, params={'q': q})
+    response = requests.post(url, data={'q': q})
     if not response.text:
         print("No result")
     else:

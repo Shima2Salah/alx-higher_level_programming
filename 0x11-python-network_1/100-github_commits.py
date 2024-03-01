@@ -1,17 +1,13 @@
 #!/usr/bin/python3
-"""Get the 10 latest commit"""
+""" Lists 10 commits (from the most recent to oldest) of a repository. """
+import requests
+import sys
+
 
 if __name__ == "__main__":
-    import requests
-    import sys
-
-    r = requests.get('https://api.github.com/repos/{}/{}/commits'
-                      .format(sys.argv[2], sys.argv[1]))
-    result = r.json()
-    try:
-        for i in range(10):
-            print("{}: {}".format(
-                  result[i].get("sha"),
-                  result[i].get("commit").get("author").get("name")))
-    except IndexError:
-        pass
+    response = requests.get("https://api.github.com/repos/{}/{}/commits".
+                            format(sys.argv[2], sys.argv[1]),
+                            params={"per_page": 10})
+    for commit in response.json():
+        print("{}: {}".format(commit.get("sha"), commit.get("commit").
+                              get("author").get("name")))

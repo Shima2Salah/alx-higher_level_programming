@@ -7,11 +7,11 @@ if __name__ == "__main__":
     if sys.argv[1]:
         q = sys.argv[1]
     else:
-        q=""
-    response = requests.get(url, params={'q':q})
+        q = ""
+    response = requests.get(url, params={'q': q})
     try:
         r = response.json()
-    except:
+    except ValueError:
         print("Not a valid JSON")
     else:
         if q == "":

@@ -9,15 +9,12 @@ if __name__ == "__main__":
     else:
         q = ""
     response = requests.post(url, data={'q': q})
-    if not response.text:
-        print("No result")
+    try:
+        r = response.json()
+    except ValueError:
+        print("Not a valid JSON")
     else:
-        try:
-            r = response.json()
-        except ValueError:
-            print("Not a valid JSON")
+        if r == {}:
+            print("No result")
         else:
-            if r == {}:
-                print("No result")
-            else:
-                print("[{}] {}".format(r['id'], r['name']))
+            print("[{}] {}".format(r['id'], r['name']))

@@ -6,7 +6,7 @@ if __name__ == "__main__":
     url = sys.argv[1]
     try:
         with request.urlopen(url) as content:
-            response = content.read()        
+            response = content.read()
     except error.HTTPError as e:
         print("Error code: {}".format(e.code))
     else:

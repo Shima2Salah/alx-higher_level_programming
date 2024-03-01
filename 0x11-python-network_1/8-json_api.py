@@ -17,4 +17,4 @@ if __name__ == "__main__":
         if q == "":
             print("No result")
         else:
-            print("[{}] {}".format(r[id], r[name]))
+            print("[{}] {}".format(r['id'], r['name']))
